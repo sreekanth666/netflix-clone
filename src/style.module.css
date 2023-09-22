@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+.banner1 {
+    background-image: url(https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABXdoFBGXx_gQywX64x9I5gEetMlsMB-wM_vZC4VBpdoqOxNZQxTi-foCgZ_kGXllVTLiZeTPpHuD9UkvR9frMUdFRHKxVrAYUMuS.jpg?r=b45);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: grid;
+}
+.navbar {
+    position: fixed;
+    background-image: linear-gradient(180deg, black, transparent);
+    width: 100%;
+}
+.items {
+    align-self: end;
+    color: white;
+    padding: 5rem;
+    padding-bottom: 10rem;
+}
+.shortInfo {
+    width: 30rem;
+}
+.categories {
+    padding-left: 3rem;
+    margin-top: 2rem;
+}
+.categoryHead {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.showCard {
+    border: 1px solid black;
+    height: 15rem;
+    width: 10rem;
+    overflow: hidden;
+    padding: 0;
+}
+.cardImg {
+    width: 100%;
+    margin: 0;
+    
+}
