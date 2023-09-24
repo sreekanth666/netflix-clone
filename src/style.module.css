@@ -1,6 +1,13 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Netflix Sans', sans-serif;
+}
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 100;
+    font-display: optional;
+    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff) format('woff');
 }
 .banner1 {
     background-image: url(https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABXdoFBGXx_gQywX64x9I5gEetMlsMB-wM_vZC4VBpdoqOxNZQxTi-foCgZ_kGXllVTLiZeTPpHuD9UkvR9frMUdFRHKxVrAYUMuS.jpg?r=b45);
@@ -11,7 +18,8 @@
     display: grid;
 }
 .navbar {
-    position: fixed;
+    position: absolute;
+    z-index: 100;
     background-image: linear-gradient(180deg, black, transparent);
     width: 100%;
 }
@@ -33,11 +41,12 @@
     font-weight: 500;
 }
 .showCard {
-    border: 1px solid black;
-    height: 15rem;
+    height: auto;
     width: 10rem;
     overflow: hidden;
     padding: 0;
+    border-radius: 5px;
+    margin: 0 1rem;
 }
 .cardImg {
     width: 100%;
