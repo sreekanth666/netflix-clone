@@ -8,7 +8,6 @@ This is a simple Netflix clone project built using HTML, CSS, JavaScript, ReactJ
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - Browse a catalog of movies and TV shows.
