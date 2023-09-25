@@ -1,35 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from '../style.module.css'
+import tmdbAxiosInstance from '../tmdbAxiosInstance';
 
 function Row({title, fetchUrl}) {
     console.log(fetchUrl);
+    const base_url = "https://image.tmdb.org/t/p/original/"
+    const [allMovies, setAllMovies] = useState([])
+    const fetchData = async () => {
+        const {data} = await tmdbAxiosInstance.get(fetchUrl)
+        setAllMovies(data.results)
+    }
+    console.log(allMovies);
+    useEffect (() => {
+        fetchData()
+    }, [])
     return (
-        <>
-        <div className={`container-fluid ${style.categories}`}>
-            <div className={`row`}>
-                <p className={`${style.categoryHead}`}>Trending Now</p>
+        <div className='body'>
+        <div className={`${style.categories}`}>
+            <div className={`row ${style.categoryHeadDiv}`}>
+                <p className={`${style.categoryHead}`}>{`${title}`}</p>
             </div>
-            <div className={`row`}>
-
-                <div className={`${style.showCard}`}>
-                    <img src='https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQWAJ68nKbSun1YQc4HdkX7Lk5Q2BRy8ZWOPiWiIFmuVece6NCorgfzsAkX8ZvkItQhsSDbLpBuog0Ux1EumB0cxzFKamXpcSNdu36Tdk1XgmJgITbQsi5QvJOdbGSihsS3Sr30ukw0r3R1bW3dFdiyaS.jpg?r=0a3' className={`${style.cardImg}`}></img>
-                </div>
-                <div className={`${style.showCard}`}>
-                    <img src='https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQWAJ68nKbSun1YQc4HdkX7Lk5Q2BRy8ZWOPiWiIFmuVece6NCorgfzsAkX8ZvkItQhsSDbLpBuog0Ux1EumB0cxzFKamXpcSNdu36Tdk1XgmJgITbQsi5QvJOdbGSihsS3Sr30ukw0r3R1bW3dFdiyaS.jpg?r=0a3' className={`${style.cardImg}`}></img>
-                </div>
-                <div className={`${style.showCard}`}>
-                    <img src='https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQWAJ68nKbSun1YQc4HdkX7Lk5Q2BRy8ZWOPiWiIFmuVece6NCorgfzsAkX8ZvkItQhsSDbLpBuog0Ux1EumB0cxzFKamXpcSNdu36Tdk1XgmJgITbQsi5QvJOdbGSihsS3Sr30ukw0r3R1bW3dFdiyaS.jpg?r=0a3' className={`${style.cardImg}`}></img>
-                </div>
-                <div className={`${style.showCard}`}>
-                    <img src='https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQWAJ68nKbSun1YQc4HdkX7Lk5Q2BRy8ZWOPiWiIFmuVece6NCorgfzsAkX8ZvkItQhsSDbLpBuog0Ux1EumB0cxzFKamXpcSNdu36Tdk1XgmJgITbQsi5QvJOdbGSihsS3Sr30ukw0r3R1bW3dFdiyaS.jpg?r=0a3' className={`${style.cardImg}`}></img>
-                </div>
-                <div className={`${style.showCard}`}>
-                    <img src='https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQWAJ68nKbSun1YQc4HdkX7Lk5Q2BRy8ZWOPiWiIFmuVece6NCorgfzsAkX8ZvkItQhsSDbLpBuog0Ux1EumB0cxzFKamXpcSNdu36Tdk1XgmJgITbQsi5QvJOdbGSihsS3Sr30ukw0r3R1bW3dFdiyaS.jpg?r=0a3' className={`${style.cardImg}`}></img>
-                </div>
-
+            <div className={`row ${style.allMovies}`}>
+                {
+                    allMovies.map(items => (
+                        <div className={`${style.showCard}`}>
+                            <img src={`${base_url}${items.poster_path}`} className={`${style.cardImg}`}></img>
+                        </div>
+                    ))
+                }
             </div>
         </div>
-        </>
+        </div>
     )
 }
 

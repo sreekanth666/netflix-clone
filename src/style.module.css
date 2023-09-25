@@ -1,55 +1,41 @@
+@font-face {
+    font-display:optional;
+    font-family:Netflix Sans;
+    font-weight:100, 200, 300, 400, 500, 600, 700, 800, 900;
+    src:url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff2) format("woff2"),url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff) format("woff")}
 * {
-    margin: 0;
-    box-sizing: border-box;
     font-family: 'Netflix Sans', sans-serif;
 }
-@font-face {
-    font-family: 'Netflix Sans';
-    font-weight: 100;
-    font-display: optional;
-    src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2) format('woff2'), url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff) format('woff');
+.body {
+    background-color: black;
 }
-.banner1 {
-    background-image: url(https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABXdoFBGXx_gQywX64x9I5gEetMlsMB-wM_vZC4VBpdoqOxNZQxTi-foCgZ_kGXllVTLiZeTPpHuD9UkvR9frMUdFRHKxVrAYUMuS.jpg?r=b45);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    display: grid;
-}
-.navbar {
-    position: absolute;
-    z-index: 100;
-    background-image: linear-gradient(180deg, black, transparent);
-    width: 100%;
-}
-.items {
-    align-self: end;
-    color: white;
-    padding: 5rem;
-    padding-bottom: 10rem;
-}
-.shortInfo {
-    width: 30rem;
-}
-.categories {
-    padding-left: 3rem;
-    margin-top: 2rem;
-}
+
 .categoryHead {
+    font-weight: 700;
     font-size: 1.5rem;
-    font-weight: 500;
+}
+
+.allMovies {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: auto;
 }
 .showCard {
     height: auto;
-    width: 10rem;
-    overflow: hidden;
-    padding: 0;
-    border-radius: 5px;
-    margin: 0 1rem;
+    width: auto;
+}
+.categories {
+    margin-left: 1rem;
 }
 .cardImg {
-    width: 100%;
-    margin: 0;
-    
+    height: 100%;
+    width: 8rem;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.categoryHeadDiv p {
+    padding: 2rem 0 0.5rem 0;
 }
