@@ -1,5 +1,4 @@
 # Netflix Clone
-![Netflix Clone](netflix-clone.png)
 
 This is a simple Netflix clone project built using HTML, CSS, JavaScript, ReactJS, Axios, and the TMDB API. It mimics the appearance and functionality of the Netflix website by displaying a list of movies and TV shows.
 
