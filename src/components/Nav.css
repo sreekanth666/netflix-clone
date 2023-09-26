@@ -1,0 +1,7 @@
+.nav {
+    padding: 2rem 5rem;
+    position: absolute;
+    z-index: 100;
+    background-image: linear-gradient(black, transparent);
+    width: 100%;
+}

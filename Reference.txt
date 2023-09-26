@@ -1,0 +1,60 @@
+  const API_KEY="47de2b9e8b2462b53975d18185ac40bf";
+
+const requests = {
+      fetchTrending:`/trending/all/week?api_key=${APIKEY}&language=en-US`,
+      fetchNetflixOriginals:`/discover/tv?api_key=${APIKEY}&with_networks=213`,
+      fetchTopRated:`/movie/top_rated?api_key=${APIKEY}&language=en-US`,
+      fetchActionMovies:`/discover/movie?api_key=${APIKEY}&with_genres=28`,
+      fetchComedyMovies:`/discover/movie?api_key=${APIKEY}&with_genres=35`,
+    fetchHorrorMovies:`/discover/movie?api_key=${APIKEY}&with_genres=27`,
+    fetchRomanceMovies:`/discover/movie?api_key=${APIKEY}&with_genres=10749`,
+    fetchDocumentaries:`/discover/movie?api_key=${APIKEY}&with_genres=99`,
+}
+
+  baseURL: "https://api.themoviedb.org/3",
+
+  const base_url = "https://image.tmdb.org/t/p/original/";
+
+
+-------------------------------------------------------------------
+Conditional Rendering and props Row.jsx
+-------------------------------------------------------------------
+import React, { useEffect, useState } from 'react'
+import style from '../style.module.css'
+import tmdbAxiosInstance from '../tmdbAxiosInstance';
+
+function Row({title, fetchUrl, isPoster}) {
+    console.log(fetchUrl);
+    const base_url = "https://image.tmdb.org/t/p/original/"
+    const [allMovies, setAllMovies] = useState([])
+    const fetchData = async () => {
+        const {data} = await tmdbAxiosInstance.get(fetchUrl)
+        setAllMovies(data.results)
+    }
+    console.log(allMovies);
+    useEffect (() => {
+        fetchData()
+    }, [])
+    return (
+        <div className='body'>
+        <div className={`${style.categories}`}>
+            <div className={`row ${style.categoryHeadDiv}`}>
+                <p className={`${style.categoryHead}`}>{`${title}`}</p>
+            </div>
+            <div className={`row ${style.allMovies}`}>
+                {
+                    allMovies.map(items => (
+                        <div className={`${style.showCard}`}>
+                            <img src={`${base_url}${isPoster?items.backdrop_path:items.poster_path}`} className={`${isPoster?style.backdropImg:style.cardImg}`}></img>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+        </div>
+    )
+}
+
+export default Row;
+
+
