@@ -2,8 +2,9 @@
     padding: 2rem 5rem;
     position: fixed;
     z-index: 100;
+    background-image: linear-gradient(black, transparent);
     width: 100%;
 }
 .navBlack{
-    background-color: black;
+    background-color: black !important;
 }
